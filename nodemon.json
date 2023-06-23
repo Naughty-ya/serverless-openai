@@ -1,0 +1,6 @@
+{
+  "ignore": ["dist/", "node_modules/"],
+  "watch": ["**/*"],
+  "ext": "json, ts",
+  "exec": "ts-node ./app.ts"
+}
