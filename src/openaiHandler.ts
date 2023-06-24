@@ -9,7 +9,7 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 
       return {
         statusCode : 200,
-        body : result ? result.data.choices[0].message.content : result.message,
+        body :JSON.stringify( result ? result.data.choices[0].message.content : result.message),
       };
     } else {
       const { list } = event.body;
@@ -17,7 +17,7 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
 
       return {
         statusCode : 200,
-        body : result ? result.data.choices[0].message.content : result.message,
+        body : JSON.stringify(result ? result.data.choices[0].message.content : result.message),
       };
     }
 
