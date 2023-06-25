@@ -34,6 +34,7 @@ app.post('/openai', async (req: Request & APIGatewayEvent, res: Response & Conte
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(JSON.parse(err));
   res.send(JSON.parse(err));
+  next();
 });
 
 app.listen(PORT, () => console.log('Listening on port ' + PORT));

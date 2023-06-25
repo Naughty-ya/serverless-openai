@@ -217,3 +217,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

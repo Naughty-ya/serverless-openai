@@ -1,7 +1,6 @@
 import { Context, APIGatewayProxyResult, APIGatewayEvent } from 'aws-lambda';
 import { chatGPT } from './openaiService';
 import { getAverage } from './redisService';
-import { Prompt } from './types';
 
 export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
   try {

@@ -2,10 +2,17 @@
   "name": "openai-mbti-lambda",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "16.16.0"
+  },
+  "main": "dist/app.js",
   "scripts": {
     "dev": "nodemon -e ts",
-    "build:openai": "esbuild ./src/openaiHandler.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js && npm run postbuild",
-    "postbuild": "cd dist && zip -r index.zip index.js*"
+    "build:openai": "esbuild ./src/openaiHandler.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=dist/index.js && npm run post:build",
+    "post:build": "cd dist && zip -r index.zip index.js*",
+    "build": "rm -rf build && tsc --build && npm run dist",
+    "dist": "sh ./dist.sh",
+    "deploy": "npm run build && git add . && git commit -m \":rocket: v$npm_package_version\" && eb deploy --staged"
   },
   "keywords": [],
   "author": "",
