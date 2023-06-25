@@ -33,7 +33,7 @@ export async function getAverage (data: string) {
 
     let myRate = 1;
     for (const i in rate) {
-      if (Number(rate[i]) === Number(num)) {
+      if (Number(rate[Number(i)]) === Number(num)) {
         myRate = Number(i)+1;
         break;
       }
