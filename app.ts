@@ -4,11 +4,13 @@ dotenv.config();
 import express, { NextFunction, Request, Response } from 'express';
 import { APIGatewayEvent, Context } from 'aws-lambda';
 import { handler } from './src/openaiHandler';
+import cors from 'cors';
 
 const PORT = 3000;
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // health check
 app.get('/', async (req: Request, res: Response) => {
