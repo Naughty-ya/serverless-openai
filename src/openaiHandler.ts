@@ -68,7 +68,10 @@ export const handler = async (event: APIGatewayEvent, context: Context): Promise
     console.error(err);
     return {
       statusCode : 400,
-      body : JSON.stringify({ message : err instanceof Error ? err.message : err }),
+      body : JSON.stringify({
+        success: false,
+        message : err instanceof Error ? err.message : err
+      }),
     };
   }
 };
