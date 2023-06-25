@@ -24,7 +24,7 @@ app.post('/openai', async (req: Request & APIGatewayEvent, res: Response & Conte
     }
     res.status(200).json({
       success : true,
-      data : result.body,
+      data : JSON.parse(result.body),
     });
   } catch (err) {
     next(err);
