@@ -14,7 +14,7 @@ app.use(cors());
 
 // health check
 app.get('/', async (req: Request, res: Response) => {
-  res.send('Ok.');
+  res.status(200).send('Ok.');
 });
 
 // handler test
