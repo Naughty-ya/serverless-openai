@@ -29,7 +29,7 @@ export async function getAverage (data: string) {
     }, 0);
 
     await redis.set('average', reAvg / list.length);
-    const rate = list.sort((a, b) => Number(a) - Number(b));
+    const rate = list.sort((a, b) => Number(b) - Number(a));
 
     let myRate = 1;
     for (const i in rate) {
