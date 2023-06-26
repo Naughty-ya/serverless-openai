@@ -18,7 +18,7 @@ export async function openAICtr (req: Request, res: Response) {
     }
     res.status(200).json({
       success : true,
-      percent : percent.slice(2, -1),
+      percent : Number(percent.slice(2, -1)),
       message : message.message,
       average : rate.average,
       rate : rate.rate

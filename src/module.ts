@@ -45,8 +45,8 @@ export async function getAverage (data: string) {
 
       return {
         success: true,
-        average: `${Math.floor(reAvg / list.length)}%`,
-        rate: `${Math.floor((myRate/list.length)*100)}%`
+        average: Math.floor(reAvg / list.length),
+        rate: Math.floor((myRate/list.length)*100)
       }
     }
   } catch (err) {
