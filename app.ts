@@ -2,11 +2,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import express, { NextFunction, Request, Response } from 'express';
-import { APIGatewayEvent, Context } from 'aws-lambda';
-import { handler } from './src/openaiHandler';
 import cors from 'cors';
+import { OpenaiRouter } from './src/routes';
 
-const PORT = 3000;
 const app = express();
 
 app.use(express.json());
@@ -17,21 +15,7 @@ app.get('/', async (req: Request, res: Response) => {
   res.status(200).send('Ok.');
 });
 
-// handler test
-app.post('/openai', async (req: Request & APIGatewayEvent, res: Response & Context, next: NextFunction) => {
-  try {
-    const result = await handler(req, res);
-    if (result.statusCode !== 200) {
-      throw new Error(JSON.parse(result.body));
-    }
-    res.status(200).json({
-      success : true,
-      data : JSON.parse(result.body),
-    });
-  } catch (err) {
-    next(err);
-  }
-});
+app.use('/api', OpenaiRouter);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   console.log(JSON.parse(err));
@@ -39,4 +23,4 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-app.listen(PORT, () => console.log('Listening on port ' + PORT));
+app.listen(process.env.PORT, () => console.log('Listening on port ' + process.env.PORT));
