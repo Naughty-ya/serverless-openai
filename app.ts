@@ -18,8 +18,11 @@ app.get('/', async (req: Request, res: Response) => {
 app.use('/api', OpenaiRouter);
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-  console.log(JSON.parse(err));
-  res.send(JSON.parse(err));
+  console.error(err);
+  res.status(200).json({
+    success: false,
+    message: err.message,
+  })
   next();
 });
 
