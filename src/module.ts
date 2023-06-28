@@ -65,7 +65,7 @@ export async function resOpenAI (list: Array<Prompt>): Promise<any> {
       messages : [
         {
           'role' : 'system',
-          'content' : 'mbti전문가의 입장으로 질문 Q 와 각 질문에 대한 대답 A 를 보고 전체 A의 내용이 얼마나 이성적이고 논리적인지를 몇 퍼센트인지 분석하고 대답해줘. 어떠한 설명도 하지말고 \'T: %\'이 정규식에 맞게만 숫자로 대답 해줘. '
+          'content' : 'mbti전문가의 입장으로 각 질문 Q에 대한 질문인 대답 A 를 보고 전체 A의 내용이 얼마나 이성적이고 논리적, 분석적이며 객관적으로 사실을 판단하는지를 몇 퍼센트인지 분석하고 대답해줘. 어떠한 설명도 하지말고 \'T: %\'이 정규식에 맞게만 숫자로 대답 해줘. '
         },
         {
           role : 'user',
