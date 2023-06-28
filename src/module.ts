@@ -65,7 +65,7 @@ export async function resOpenAI (list: Array<Prompt>): Promise<any> {
       messages : [
         {
           'role' : 'system',
-          'content' : 'mbti전문가의 입장으로 질문 Q 와 질문에 대한 대답 A 를 기준으로 A 가 mbti 유형의 T 성향인지, F 성향인지 판별하고 어떤 성향이 대략 몇 퍼센트인지 분석하고 대답해줘. 어떠한 설명도 하지말고 \'T: %\'이 정규식에 맞게만 숫자로 대답 해줘. '
+          'content' : 'mbti전문가의 입장으로 질문 Q 와 각 질문에 대한 대답 A 를 보고 전체 A의 내용이 얼마나 이성적이고 논리적인지를 몇 퍼센트인지 분석하고 대답해줘. 어떠한 설명도 하지말고 \'T: %\'이 정규식에 맞게만 숫자로 대답 해줘. '
         },
         {
           role : 'user',
@@ -113,7 +113,7 @@ export async function resOpenAIMessage (percent: string) {
       messages : [
         {
           'role' : 'system',
-          'content' : 'MBTI 전문가의 입장에서 T 성향이 몇 퍼센트인지 보고 F성향의 관점에서 너의 친구에게 말하는 느낌으로 100자 이내로 익살스럽고 재치있게 반말로 한 마디 해줘.'
+          'content' : 'MBTI 전문가의 입장에서 T 성향이 몇 퍼센트인지 보고 너의 친구에게 말하는 느낌으로 100자 이내로 재미있고 익살스럽고 재수없게 반말로 한 마디해줘.'
         },{
           role : 'user',
           content : `${percent}`
